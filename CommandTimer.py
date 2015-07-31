@@ -14,15 +14,21 @@ class xList():
 
     def __init__(self):
         self._list=[]
-        self._min=0
-        self._max=0
+        self._min=None
+        self._max=None
         self._avg=0
         self._sum=0
         
     def append(self,v):
         self._list.append(v)
-        self._max=max([self._max,v])
-        self._min=min([self._min,v])
+        if self._max != None:
+            self._max=max([self._max,v])
+        else:
+            self._max=v
+        if self._min != None:
+            self._min=min([self._min,v])
+        else:
+            self._min=v
         self._sum+=v
         self._avg=(self._sum/len(self._list)*1.0)
         
